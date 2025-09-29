@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduChain — Learn2Earn Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="nav">
+    <div class="nav-left">
+      <div class="logo">EduChain</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button id="connectBtn" class="btn small">Connect Wallet</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>🎓 EduChain</h1>
+      <p class="tagline">Transparent blockchain credentials for Africa — demo (mocked) for Hedera Hackathon.</p>
+      <div class="cta-row">
+        <button id="heroClaimAll" class="btn">Claim Quick Test Cred</button>
+        <a class="link" href="dashboard.html">View Dashboard →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- COURSES -->
+  <section id="courses" class="section container">
+    <h2>Courses</h2>
+    <p class="muted">Complete a short micro-lesson + quiz, then claim a verifiable credential.</p>
+
+    <div class="cards">
+      <!-- Course 1 -->
+      <div class="card course" data-course-id="intro-web3" data-course-title="Intro to Web3">
+        <h3>Intro to Web3</h3>
+        <p class="muted">10-minute primer & short quiz.</p>
+
+        <div class="lesson">
+          <p><strong>Lesson:</strong> Web3 is the decentralised web where users own data and identities.</p>
+        </div>
+
+        <div class="quiz">
+          <label>Q: Which network does EduChain demo use (mock)?</label>
+          <select class="quiz-input">
+            <option value="">— choose —</option>
+            <option value="hedera">Hedera</option>
+            <option value="eth">Ethereum</option>
+            <option value="sol">Solana</option>
+          </select>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn small claim-btn" data-course="intro-web3">Claim Certificate</button>
+        </div>
+      </div>
+
+      <!-- Course 2 -->
+      <div class="card course" data-course-id="hedera-nft" data-course-title="Hedera NFT Basics">
+        <h3>Hedera NFT Basics</h3>
+        <p class="muted">8-minute intro to minting & verifying certificates.</p>
+
+        <div class="lesson">
+          <p><strong>Lesson:</strong> NFTs can represent credentials stored with IPFS metadata and a token id.</p>
+        </div>
+
+        <div class="quiz">
+          <label>Q: NFTs can be used as digital certificates? (choose)</label>
+          <select class="quiz-input">
+            <option value="">— choose —</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn small claim-btn" data-course="hedera-nft">Claim Certificate</button>
+        </div>
+      </div>
+
+      <!-- Course 3 -->
+      <div class="card course" data-course-id="learn2earn" data-course-title="Learn2Earn: Basics">
+        <h3>Learn2Earn: Basics</h3>
+        <p class="muted">Gamified learning + token incentives (demo).</p>
+
+        <div class="lesson">
+          <p><strong>Lesson:</strong> Learners can earn tokens for completing micro-courses.</p>
+        </div>
+
+        <div class="quiz">
+          <label>Q: Learn2Earn combines learning and ______? (one word)</label>
+          <select class="quiz-input">
+            <option value="">— choose —</option>
+            <option value="tokens">tokens</option>
+            <option value="ads">ads</option>
+            <option value="games">games</option>
+          </select>
+        </div>
+
+        <div class="card-actions">
+          <button class="btn small claim-btn" data-course="learn2earn">Claim Certificate</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>Built for Hedera Africa Hackathon • EduChain (demo)</div>
+  </footer>
+
+  <!-- WALLET MODAL -->
+  <div id="walletModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>Select Wallet</h3>
+      <ul class="wallet-list">
+        <li onclick="selectWallet('0.0.12345')">HashPack — 0.0.12345</li>
+        <li onclick="selectWallet('0.0.67890')">Blade — 0.0.67890</li>
+        <li onclick="selectWallet('0.0.99999')">Ledger — 0.0.99999</li>
+      </ul>
+      <div class="modal-actions">
+        <button class="btn small" onclick="closeWalletModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TX MODAL -->
+  <div id="txModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>Confirm Transaction</h3>
+      <p class="muted">Action: Claim EduChain Certificate (mock)</p>
+      <div class="tx-details">
+        <div><strong>From:</strong> <span id="txFrom">—</span></div>
+        <div><strong>Network:</strong> Hedera Testnet (mock)</div>
+        <div><strong>Fee:</strong> ~0.001 HBAR</div>
+      </div>
+      <div class="modal-actions">
+        <button id="confirmTxBtn" class="btn small">Confirm</button>
+        <button class="btn small alt" onclick="rejectTx()">Reject</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toastContainer" class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+  </html>
