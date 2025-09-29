@@ -1,0 +1,87 @@
+/* Basic reset & variables */
+:root{
+  --bg:#0b1220; --card:#0f1724; --accent:#6c5ce7; --muted:#9aa4b2; --glass: rgba(255,255,255,0.04);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:linear-gradient(180deg,#071021 0%, #07112a 100%);
+  color:#e6eef8;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* NAV */
+.nav{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 24px;
+  backdrop-filter: blur(6px); background: rgba(10,16,28,0.6); border-bottom:1px solid rgba(255,255,255,0.03);
+}
+.nav-left{display:flex;align-items:center;gap:18px}
+.logo{font-weight:700;color:var(--accent);font-size:18px}
+.nav-links a{color:var(--muted);text-decoration:none;margin-right:12px;font-weight:600}
+.nav-links a.active, .nav-links a:hover{color:#fff}
+
+/* Buttons */
+.btn{background:var(--accent);color:white;border:none;padding:10px 14px;border-radius:10px;font-weight:700;cursor:pointer;box-shadow:0 6px 18px rgba(108,92,231,0.18);transition:transform .18s ease,box-shadow .18s ease}
+.btn.small{padding:8px 10px;font-size:13px;border-radius:8px}
+.btn.alt{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+/* HERO */
+.hero{margin:28px auto 18px;max-width:980px;padding:34px;border-radius:16px;background:linear-gradient(135deg, rgba(108,92,231,0.14), rgba(0,186,255,0.06));box-shadow:0 12px 40px rgba(6,10,18,0.6);text-align:center}
+.hero h1{font-size:34px;margin-bottom:6px}
+.tagline{color:var(--muted);margin-bottom:18px}
+.cta-row{display:flex;gap:12px;align-items:center;justify-content:center}
+
+/* Section & container */
+.section{padding:26px 20px 80px}
+.container{max-width:1100px;margin:0 auto}
+
+/* Cards grid */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:18px}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);transition:transform .18s ease,box-shadow .18s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 18px 60px rgba(2,6,23,0.6)}
+
+/* Lesson/quiz */
+.lesson{background:var(--glass);padding:10px;border-radius:8px;margin:8px 0;color:var(--muted)}
+.quiz{margin-top:8px}
+.quiz label{display:block;margin-bottom:6px;font-weight:700;color:#e6eef8}
+.quiz .quiz-input{width:100%;padding:8px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:#fff}
+
+/* Card actions */
+.card-actions{display:flex;justify-content:flex-end;margin-top:12px}
+
+/* Modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(2,6,23,0.6);z-index:999;backdrop-filter: blur(6px)}
+.modal.hidden{display:none}
+.modal-card{width:94%;max-width:420px;background:linear-gradient(180deg, #071225, #06111b);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);box-shadow:0 20px 60px rgba(2,6,23,0.6)}
+.wallet-list{list-style:none;padding:0;margin:8px 0}
+.wallet-list li{padding:10px;border-radius:8px;background:rgba(255,255,255,0.02);margin-bottom:8px;cursor:pointer}
+.wallet-list li:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.6)}
+
+/* TX details */
+.tx-details{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;margin:10px 0;color:var(--muted)}
+
+/* Toasts */
+.toast-container{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px;z-index:1200}
+.toast{padding:12px 14px;border-radius:12px;color:white;min-width:220px;box-shadow:0 12px 40px rgba(0,0,0,0.5);font-weight:700}
+.toast.info{background:linear-gradient(90deg,#2563eb,#06b6d4)}
+.toast.success{background:linear-gradient(90deg,#16a34a,#4ade80)}
+.toast.error{background:linear-gradient(90deg,#ef4444,#f97316)}
+
+/* Dashboard */
+.table-wrap{overflow:auto;margin-top:14px;background:rgba(255,255,255,0.02);border-radius:12px;padding:8px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03);color:var(--muted)}
+th{font-weight:700;color:#cfd8e3}
+
+/* small utilities */
+.muted{color:var(--muted);font-size:14px}
+.mt-4{margin-top:16px}
+
+/* responsive */
+@media (max-width:640px){
+  .nav-links{display:none}
+  .hero h1{font-size:28px}
+  .cards{grid-template-columns:1fr}
+}
