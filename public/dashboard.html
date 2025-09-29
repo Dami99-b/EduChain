@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>EduChain — Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-left">
+      <div class="logo">EduChain</div>
+      <nav class="nav-links">
+        <a href="index.html">Home</a>
+        <a class="active" href="dashboard.html">Dashboard</a>
+      </nav>
+    </div>
+    <div class="nav-right">
+      <button id="connectBtnDash" class="btn small">Connect Wallet</button>
+    </div>
+  </header>
+
+  <main class="section container">
+    <h2>My Claimed Credentials</h2>
+    <p class="muted">Credentials you claimed during the demo (stored locally).</p>
+
+    <div class="table-wrap">
+      <table id="credTable">
+        <thead>
+          <tr><th>Course</th><th>Date</th><th>Tx / IPFS</th></tr>
+        </thead>
+        <tbody>
+          <!-- populated by app.js -->
+        </tbody>
+      </table>
+    </div>
+    <div class="mt-4">
+      <button id="clearCreds" class="btn small alt">Clear Credentials</button>
+    </div>
+  </main>
+
+  <div id="toastContainer" class="toast-container"></div>
+  <script src="app.js"></script>
+</body>
+</html>
